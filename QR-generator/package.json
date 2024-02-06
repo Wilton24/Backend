@@ -1,0 +1,21 @@
+{
+  "name": "qr-generator",
+  "version": "1.0.0",
+  "description": "secret",
+  "main": "QR.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "qr",
+    "qr",
+    "trial"
+  ],
+  "author": "Oyo",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.2.14",
+    "qr-image": "^3.2.0"
+  }
+}
