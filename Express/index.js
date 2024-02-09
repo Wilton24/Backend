@@ -1,23 +1,30 @@
 import express from "express";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
 const app = express();
-const port = 3000;
 
+const girlRatings = `C:/Users/Edna/Desktop/udemy/Angela Yu/Backend/Express/public/girlRating.html`;
+
+function middlewear(req, res, next) {
+  console.log(req.body);
+  next();
+}
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.listen(port, () => {
-  console.log(`Server running, listening to port ${port}`);
+app.use(middlewear);
+
+app.listen(3000, () => {
+  console.log(`Server running on port 3000`);
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
-});
+app.get("/", (req, res) =>
+  res.sendFile(
+    `C:/Users/Edna/Desktop/udemy/Angela Yu/Backend/Express/public/index.html`
+  )
+);
 
 app.post("/submit", (req, res) => {
-  console.log(req.body);
+  res.send(
+    `<h1>The name of the girl is ${req.body.name} and her rating is ${req.body.rating}</h1>`
+  );
 });

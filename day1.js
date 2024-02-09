@@ -1,4 +1,3 @@
-const { log } = require("console");
 const fs = require("fs");
 
 // fs.writeFile("text.txt", "YellowSpak", (err) => {

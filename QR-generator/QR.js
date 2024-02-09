@@ -25,6 +25,10 @@ inquirer
     const url = answers.URL;
     const qr_svg = qr.image(url);
     qr_svg.pipe(fs.createWriteStream("qr_img.png"));
+
+    fs.writeFile("QR-text.txt", url, (err) => {
+      if (err) throw err;
+    });
   })
   .catch((error) => {
     if (error.isTtyError) {
