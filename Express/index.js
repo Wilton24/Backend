@@ -1,30 +1,27 @@
 import express from "express";
 import bodyParser from "body-parser";
-
 const app = express();
+const port = 3000;
 
-const girlRatings = `C:/Users/Edna/Desktop/udemy/Angela Yu/Backend/Express/public/girlRating.html`;
+const homepage = `C:/Users/Edna/Desktop/udemy/Angela Yu/Backend/Express/public/index.html`;
+const secret = `C:/Users/Edna/Desktop/udemy/Angela Yu/Backend/Express/public/secret.html`;
 
-function middlewear(req, res, next) {
-  console.log(req.body);
-  next();
-}
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use((req, res, next) => next());
 
-app.use(middlewear);
-
-app.listen(3000, () => {
-  console.log(`Server running on port 3000`);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
 
-app.get("/", (req, res) =>
-  res.sendFile(
-    `C:/Users/Edna/Desktop/udemy/Angela Yu/Backend/Express/public/index.html`
-  )
-);
+app.get("/", (req, res, next) => {
+  res.sendFile(homepage);
+});
 
-app.post("/submit", (req, res) => {
-  res.send(
-    `<h1>The name of the girl is ${req.body.name} and her rating is ${req.body.rating}</h1>`
-  );
+app.post("/check", (req, res, next) => {
+  if (req.body.password !== `dragon`) {
+    res.send("Wrong password po");
+    console.log('Sayop ka po');
+  } else if (req.body.password == `dragon`) {
+    res.sendFile(secret);
+  }
 });

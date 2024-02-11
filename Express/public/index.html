@@ -3,17 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trial card of the face</title>
+    <title>Secrets Access Project</title>
   </head>
   <body>
-    <h1>Body count</h1>
-    <form action="\submit" method="POST">
-      <label for="name">Name:</label>
-      <input type="text" name="name" />
-      <br />
-      <label for="rating">Rating</label>
-      <input type="text" name="rating" />
-      <br />
+    <h1>Secrets</h1>
+    <form action="/check" method="POST">
+      <label for="password">Password</label>
+      <input type="text" name="password" id="password" required />
       <input type="submit" value="Submit" />
     </form>
   </body>
